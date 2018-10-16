@@ -1,4 +1,5 @@
 function [U, S] = pca(X)
+
 %PCA Run principal component analysis on the dataset X
 %   [U, S, X] = pca(X) computes eigenvectors of the covariance matrix of X
 %   Returns the eigenvectors U, the eigenvalues (on diagonal) in S
@@ -21,10 +22,11 @@ S = zeros(n);
 %
 
 
+% first getting the covariance matrix
+sigma = 1/m * ( X' * X);
 
-
-
-
+% run SVD(singular value decomposition) on this covariance matrix
+[U, S, V] = svd(sigma);
 
 % =========================================================================
 

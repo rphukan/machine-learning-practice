@@ -1,4 +1,5 @@
 function centroids = computeCentroids(X, idx, K)
+
 %COMPUTECENTROIDS returns the new centroids by computing the means of the 
 %data points assigned to each centroid.
 %   centroids = COMPUTECENTROIDS(X, idx, K) returns the new centroids by 
@@ -27,11 +28,20 @@ centroids = zeros(K, n);
 %
 
 
+for centroid = 1 : K
 
+    % gives a m dimensional vector with value 1 and 0 s. The indexes where the value is 1 , are the Points which are assigned to that centroid.
+    indexes = (idx == centroid);
 
+    % below should give sum of the points for which indexes==1
+    summation = indexes' * X;
 
+    % total no of points which are assigned to the centroid, basically just sum all the 1s in indexes
+    count = sum(indexes);
 
+    centroids(centroid, :) = summation/count;
 
+end
 
 % =============================================================
 

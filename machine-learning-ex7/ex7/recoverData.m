@@ -1,4 +1,5 @@
 function X_rec = recoverData(Z, U, K)
+
 %RECOVERDATA Recovers an approximation of the original data when using the 
 %projected data
 %   X_rec = RECOVERDATA(Z, U, K) recovers an approximation the 
@@ -21,7 +22,9 @@ X_rec = zeros(size(Z, 1), size(U, 1));
 %               Notice that U(j, 1:K) is a row vector.
 %               
 
+u_reduce = U(:, 1:K);
 
+X_rec =  Z * u_reduce';
 
 % =============================================================
 
