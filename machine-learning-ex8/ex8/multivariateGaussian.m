@@ -1,4 +1,5 @@
 function p = multivariateGaussian(X, mu, Sigma2)
+
 %MULTIVARIATEGAUSSIAN Computes the probability density function of the
 %multivariate gaussian distribution.
 %    p = MULTIVARIATEGAUSSIAN(X, mu, Sigma2) Computes the probability 

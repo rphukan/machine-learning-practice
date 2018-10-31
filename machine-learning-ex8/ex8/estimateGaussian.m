@@ -1,4 +1,5 @@
 function [mu sigma2] = estimateGaussian(X)
+
 %ESTIMATEGAUSSIAN This function estimates the parameters of a 
 %Gaussian distribution using the data in X
 %   [mu sigma2] = estimateGaussian(X), 
@@ -21,14 +22,19 @@ sigma2 = zeros(n, 1);
 %               should contain variance of the i-th feature.
 %
 
+% sum of the same features of all the examples
+temp = X' * ones(m,1);      % size ( n, 1 )
+% calculate the mean vector of all the features
+mu = 1/m .* temp;           % size ( n, 1 )
 
 
-
-
-
-
-
-
+% subtract the mean from all the features of all the examples
+deviation = X' - mu;                % size(n, m)
+% take square of the deviation for each feature
+temp = deviation .* deviation;      % size(n, m)
+% take sum of the feature/deviation for all the examples
+sum = temp * ones(m, 1);
+sigma2 = 1/m .* sum;                % size(n, m)
 
 % =============================================================
 
